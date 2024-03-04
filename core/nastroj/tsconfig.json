@@ -1,0 +1,9 @@
+{
+  "extends": "@x/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "strictBindCallApply": false,
+    "noImplicitThis": false,
+    "noImplicitAny":false,
+    "lib": ["DOM"]
+  }
+}

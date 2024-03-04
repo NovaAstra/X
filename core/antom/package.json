@@ -1,0 +1,8 @@
+{
+  "name": "@x/antom",
+  "type": "module",
+  "main": "index.ts",
+  "dependencies": {
+    "@chaos/etance": "workspace:^"
+  }
+}

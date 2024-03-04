@@ -1,0 +1,6 @@
+{
+  "name": "@x/etance",
+  "type": "module",
+  "main": "index.ts",
+  "types": "index.d.ts"
+}

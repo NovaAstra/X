@@ -1,0 +1,8 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "@x/tsconfig-vite",
+    "extends": "./node.esm.json",
+    "compilerOptions": {
+      "types": ["node", "vite/client"]
+    }
+  }

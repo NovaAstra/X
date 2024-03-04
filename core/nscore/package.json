@@ -1,0 +1,6 @@
+{
+  "name": "@x/nscore",
+  "type": "module",
+  "main": "index.ts"
+}
+

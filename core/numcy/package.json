@@ -1,0 +1,10 @@
+{
+  "name": "@x/numcy",
+  "description": "A practical scientific computing library",
+  "private": false,
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "@x/nastroj": "workspace:^"
+  }
+}
