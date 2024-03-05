@@ -22,4 +22,8 @@ export class ProjectModel implements ProjectSchema {
       }
     }
   }
+
+  public toDsl():ProjectSchema {
+    return {} as any
+  }
 }

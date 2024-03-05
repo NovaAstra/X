@@ -1,7 +1,8 @@
+import { NodeSchema } from './node';
+
 export interface BlockSchema {
   id?: string;
   name: string;
   locked?: string;
-
-  __VERSION__?: string;
+  nodes?: Record<string, NodeSchema>;
 }
