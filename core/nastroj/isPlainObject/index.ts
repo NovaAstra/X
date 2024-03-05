@@ -1,4 +1,4 @@
-import type { PlainObject } from '@chaos/taper';
+import type { PlainObject } from '@x/taper';
 
 import { getTag } from '../getTag';
 import { isObjectLike } from '../isObjectLike';

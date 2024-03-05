@@ -1,4 +1,4 @@
-import type { Constructor, Function } from '@chaos/taper';
+import type { Constructor, Function } from '@x/taper';
 
 export function is<T extends Function>(ctor: T, data: unknown): data is ReturnType<T>;
 
