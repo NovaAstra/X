@@ -11,7 +11,7 @@ export interface NodeSourceRemoteSchema {
 export type NodeSource = string | NodeSourceUrlSchema | NodeSourceRemoteSchema;
 
 export interface NodeSchema {
-  id?: string;
+  id: string;
   name: string;
   source?: NodeSource;
 }

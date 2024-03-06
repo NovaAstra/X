@@ -3,7 +3,7 @@ import { uuid } from '../utilties';
 export type WithId<Schema> = Schema & { id?: string };
 
 export class BaseModel<Schema> {
-  public id: string;
+  public readonly id: string;
 
   public name!: string;
 
