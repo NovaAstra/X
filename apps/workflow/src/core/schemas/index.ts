@@ -1,4 +1,5 @@
 export * from './block';
-export * from './file';
+export * from './history';
 export * from './node';
 export * from './project';
+export * from './space';

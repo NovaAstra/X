@@ -1,12 +1,10 @@
 import type { BlockSchema } from './block';
 
-export interface BlockFile {
+export interface SpaceSchema {
   id: string;
   name: string;
   title: string;
-  dsl?: BlockSchema;
-}
-
-export interface PageFile extends BlockFile {
   icon?: string;
+  schema?: BlockSchema;
+  children?: Record<string, SpaceSchema>;
 }

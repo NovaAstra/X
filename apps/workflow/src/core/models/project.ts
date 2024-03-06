@@ -1,29 +1,30 @@
-import type { ProjectSchema } from '../schemas';
+import type { ProjectSchema, SpaceSchema } from '../schemas';
 
-import { uuid } from '../utilties';
+import { useAttrs } from '../hooks';
+import { BaseModel } from './base';
 
-export class ProjectModel implements ProjectSchema {
-  public id: string = uuid();
+export const attrs: (keyof ProjectSchema)[] = ['name', 'description', 'spaces'];
 
-  public static attrs: string[] = ['name', 'description', 'pages'];
+export class ProjectModel extends BaseModel<ProjectSchema> {
+  public spaces?: Record<string, SpaceSchema>;
+
+  public static attrs: (keyof ProjectSchema)[] = attrs;
 
   public constructor(schema: ProjectSchema) {
-    const { id } = schema;
-
-    this.id = id ?? uuid();
-
-    this.update(schema);
+    super(schema);
   }
 
-  public update(schema: Partial<ProjectSchema>) {
-    for (const key of ProjectModel.attrs) {
-      const value = schema[key as keyof ProjectSchema];
-      if (value) {
-      }
-    }
-  }
+  public toSchema(): ProjectSchema {
+    const { id } = this;
+    const attrs = useAttrs.call<
+      ProjectModel,
+      [(keyof ProjectSchema)[]],
+      ReturnType<typeof useAttrs<ProjectSchema, ProjectModel>>
+    >(this, ProjectModel.attrs);
 
-  public toDsl():ProjectSchema {
-    return {} as any
+    return {
+      id,
+      ...attrs.get(),
+    };
   }
 }
