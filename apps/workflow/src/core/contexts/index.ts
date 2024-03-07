@@ -5,10 +5,8 @@ import { ProjectContext } from './project';
 export class Context {
   private project: ProjectContext;
 
-  public constructor(project: ProjectContext) {
+  public constructor(project: ProjectContext = new ProjectContext()) {
     this.project = project;
-
-    console.log(this)
   }
 
   public async setup(schema: ProjectSchema): Promise<ProjectSchema> {
@@ -21,5 +19,5 @@ let context: Context | null = null;
 export function createContext(): Context {
   if (context) return context;
 
-  return (context = new Context(new ProjectContext()));
+  return (context = new Context());
 }

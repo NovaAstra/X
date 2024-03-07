@@ -1,4 +1,3 @@
-import type { Designer } from './designer';
 import type { Engine } from './engine';
 
 export interface SimulatorOptions {
@@ -14,7 +13,9 @@ export class Simulator {
     this.engine = engine;
   }
 
-  public bootstrap(){}
+  public bootstrap() {}
 
   public setup() {}
+
+  public refresh() {}
 }

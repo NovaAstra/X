@@ -1,4 +1,4 @@
-import { NodeSchema } from './node';
+import type { NodeSchema } from './node';
 
 export interface BlockSchema {
   id: string;

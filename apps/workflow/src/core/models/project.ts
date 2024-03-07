@@ -3,7 +3,7 @@ import type { ProjectSchema, SpaceSchema } from '../schemas';
 import { useAttrs } from '../hooks';
 import { BaseModel } from './base';
 
-export const attrs: (keyof ProjectSchema)[] = ['name', 'description', 'spaces'];
+const attrs: (keyof ProjectSchema)[] = ['name', 'description', 'spaces'];
 
 export class ProjectModel extends BaseModel<ProjectSchema> {
   public spaces?: Record<string, SpaceSchema>;

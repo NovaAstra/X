@@ -2,22 +2,21 @@ import type { Ref, InjectionKey, ShallowReactive } from 'vue';
 
 import type { Context } from '../contexts';
 import type { ProjectSchema } from '../schemas';
-import { ProjectModel } from '../models';
 
 import { ref, inject } from 'vue';
 
 import { Provider } from '../hooks/useContext';
-import { Event } from './event';
 import { Simulator } from './simulator';
+import { ProjectModel } from '../models';
 
 export interface EngineOptions {
   context: Context;
-  project: ProjectSchema;
+  project?: ProjectSchema;
 }
 
-export const key: InjectionKey<ShallowReactive<Engine>> = Symbol();
+export const key: InjectionKey<ShallowReactive<Engine>> = Symbol('Engine');
 
-export class Engine extends Event {
+export class Engine {
   public context: Context;
 
   public provider: Provider;
@@ -27,8 +26,6 @@ export class Engine extends Event {
   public project: Ref<ProjectModel | null> = ref(null);
 
   public constructor(options: EngineOptions) {
-    super();
-
     const { context, project } = options;
 
     this.context = context;
@@ -40,7 +37,7 @@ export class Engine extends Event {
       engine: this,
     });
 
-    this.setup(project);
+    this.setup(project as ProjectSchema);
   }
 
   private async setup(project: ProjectSchema) {
@@ -50,8 +47,12 @@ export class Engine extends Event {
       this.project.value = new ProjectModel(schema);
     }
   }
+
+  public async publish() {}
+
+  public destroy() {}
 }
 
 export function useEngine() {
-  return inject(key, null) as ShallowReactive<Engine>;
+  return inject(key) as ShallowReactive<Engine>;
 }

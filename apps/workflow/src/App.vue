@@ -1,9 +1,15 @@
-<script setup lang="ts">
-import { createContext } from './core/contexts'
-
-createContext().setup({ name: 'asda', id: '12312' })
-</script>
-
 <template>
   <div></div>
 </template>
+
+<script setup lang="ts">
+import { Context, Engine } from './core'
+
+new Engine({
+  context: new Context(),
+  project: {
+    name: '未命名文件'
+  }
+})
+
+</script>

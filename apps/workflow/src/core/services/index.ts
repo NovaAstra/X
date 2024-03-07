@@ -1,3 +1,4 @@
+export * from './designer';
 export * from './engine';
-export * from './event';
+export * from './emitter';
 export * from './simulator';
