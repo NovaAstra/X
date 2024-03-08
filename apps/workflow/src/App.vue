@@ -1,15 +1,15 @@
-<template>
-  <div></div>
-</template>
+<script lang="tsx">
+import { defineComponent } from "vue";
 
-<script setup lang="ts">
-import { Context, Engine } from './core'
+import { Block } from './vue'
 
-new Engine({
-  context: new Context(),
-  project: {
-    name: '未命名文件'
+export default defineComponent({
+  name: 'App',
+  setup() {
+    const Root = new Block().render()
+
+    return () => <Root />
   }
 })
-
 </script>
+

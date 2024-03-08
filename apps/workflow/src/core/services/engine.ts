@@ -1,6 +1,5 @@
 import type { Ref, InjectionKey, ShallowReactive } from 'vue';
 
-import type { Context } from '../contexts';
 import type { ProjectSchema } from '../schemas';
 
 import { ref, inject } from 'vue';
@@ -8,6 +7,8 @@ import { ref, inject } from 'vue';
 import { Provider } from '../hooks/useContext';
 import { Simulator } from './simulator';
 import { ProjectModel } from '../models';
+import { Context } from '../contexts';
+import { createEmptyProject } from '../utilties';
 
 export interface EngineOptions {
   context: Context;
@@ -26,7 +27,7 @@ export class Engine {
   public project: Ref<ProjectModel | null> = ref(null);
 
   public constructor(options: EngineOptions) {
-    const { context, project } = options;
+    const { context = new Context(), project = createEmptyProject() } = options;
 
     this.context = context;
     this.provider = new Provider({
@@ -37,20 +38,16 @@ export class Engine {
       engine: this,
     });
 
-    this.setup(project as ProjectSchema);
+    this.setup(project);
   }
 
   private async setup(project: ProjectSchema) {
-    const schema = await this.context.setup(project);
+    const schema = await this.context.project.update(project);
 
     if (schema) {
       this.project.value = new ProjectModel(schema);
     }
   }
-
-  public async publish() {}
-
-  public destroy() {}
 }
 
 export function useEngine() {

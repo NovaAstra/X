@@ -1,16 +1,27 @@
-import type { ProjectSchema } from '../schemas';
-
+import { FileContext } from './file';
+import { HistoryContext } from './history';
+import { MaterialContext } from './material';
 import { ProjectContext } from './project';
 
 export class Context {
-  private project: ProjectContext;
+  public project: ProjectContext;
 
-  public constructor(project: ProjectContext = new ProjectContext()) {
+  public file: FileContext;
+
+  public history: HistoryContext;
+
+  public material: MaterialContext;
+
+  public constructor(
+    project: ProjectContext = new ProjectContext(),
+    file: FileContext = new ProjectContext(),
+    history: HistoryContext = new HistoryContext(),
+    material: MaterialContext = new MaterialContext(),
+  ) {
     this.project = project;
-  }
-
-  public async setup(schema: ProjectSchema): Promise<ProjectSchema> {
-    return this.project.set(schema);
+    this.file = file;
+    this.history = history;
+    this.material = material;
   }
 }
 

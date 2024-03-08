@@ -18,6 +18,4 @@ export class BaseModel<Schema> {
 
     this.id = id ?? uuid();
   }
-
-  public ready(callback: () => void) {}
 }

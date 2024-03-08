@@ -1,17 +1,6 @@
-export interface NodeSourceUrlSchema {
-  type: '$url';
-  url: string;
-}
+import { WidgetSchema } from './widget';
 
-export interface NodeSourceRemoteSchema {
-  type: '$remote';
-  url: string;
-}
-
-export type NodeSource = string | NodeSourceUrlSchema | NodeSourceRemoteSchema;
-
-export interface NodeSchema {
-  id: string;
+export interface NodeSchema extends WidgetSchema {
   name: string;
-  source?: NodeSource;
 }
+

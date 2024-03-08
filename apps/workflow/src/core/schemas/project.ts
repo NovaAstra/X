@@ -1,8 +1,9 @@
 import type { SpaceSchema } from './space';
 
 export interface ProjectSchema {
-  id?: string;
+  id: string;
   name: string;
   description?: string;
   spaces?: Record<string, SpaceSchema>;
 }
+

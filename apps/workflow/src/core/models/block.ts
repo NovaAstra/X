@@ -1,4 +1,4 @@
-import type { BlockSchema, NodeSchema } from '../schemas';
+import type { BlockSchema } from '../schemas';
 
 import { BaseModel } from './base';
 import { NodeModel } from './node';
@@ -6,7 +6,9 @@ import { NodeModel } from './node';
 const attrs: (keyof BlockSchema)[] = ['name'];
 
 export class BlockModel extends BaseModel<BlockSchema> {
-  public nodes: WeakMap<NodeSchema, NodeModel> = new WeakMap();
+  public locked: boolean = false;
+
+  public nodes: Map<string, NodeModel> = new Map();
 
   public static attrs: (keyof BlockSchema)[] = attrs;
 
@@ -18,7 +20,13 @@ export class BlockModel extends BaseModel<BlockSchema> {
     const { nodes = {} } = schema;
 
     for (const id in nodes) {
-      this.nodes.set(nodes[id], new NodeModel(nodes[id]));
+      this.nodes.set(id, new NodeModel(nodes[id]));
     }
+  }
+
+  public lock() {
+    this.locked = true;
+
+    this.nodes.forEach(() => {});
   }
 }

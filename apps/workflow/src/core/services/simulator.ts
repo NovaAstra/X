@@ -12,10 +12,4 @@ export class Simulator {
 
     this.engine = engine;
   }
-
-  public bootstrap() {}
-
-  public setup() {}
-
-  public refresh() {}
 }
