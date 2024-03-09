@@ -1,4 +1,4 @@
-import type { SpaceSchema } from './space';
+import type { SpaceSchema } from './module';
 
 export interface ProjectSchema {
   id: string;

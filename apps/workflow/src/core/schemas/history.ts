@@ -1,9 +1,9 @@
-import type { BlockSchema } from './block';
+import type { ScopeSchema } from './scope';
 
 export interface HistoryItem {
   id: string;
   label: string;
-  schema?: BlockSchema;
+  schema?: ScopeSchema;
 }
 
 export interface HistorySchema {

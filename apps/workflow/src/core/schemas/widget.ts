@@ -37,6 +37,9 @@ export interface WidgetSchema extends WidgetPosition {
   /** invisible (default?: false) */
   hidden?: boolean;
 
+  /** widget name */
+  name: string;
+
   /** value for `x-id` stored on the widget */
   id: string;
 }

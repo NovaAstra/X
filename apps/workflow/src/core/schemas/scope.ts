@@ -1,6 +1,6 @@
 import type { NodeSchema } from './node';
 
-export interface BlockSchema {
+export interface ScopeSchema {
   id: string;
   name: string;
   locked?: boolean;
