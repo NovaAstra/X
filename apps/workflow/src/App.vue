@@ -1,15 +1,8 @@
-<script lang="tsx">
-import { defineComponent } from "vue";
+<template>
+  <XNode />
+</template>
 
-import { Block } from './vue'
+<script lang="ts" setup>
+import { XNode } from './vue'
 
-export default defineComponent({
-  name: 'App',
-  setup() {
-    const Root = new Block().render()
-
-    return () => <Root />
-  }
-})
 </script>
-

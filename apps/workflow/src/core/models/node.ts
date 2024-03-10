@@ -1,39 +1,37 @@
 import type { NodeSchema } from '../schemas';
 
-import { BaseModel } from './base';
+import { uuid } from '../utilties';
 
-export class NodeModel extends BaseModel<NodeSchema> {
+export class NodeModel {
+  public static create(schema: NodeSchema) {
+    return new NodeModel(schema);
+  }
+
+  public static nodes: Map<string, NodeModel> = new Map();
+
+  public readonly id: string;
+
+  public readonly name: string;
+
   public locked: boolean = false;
 
   public hidden: boolean = false;
 
-  public static nodes: Map<string, NodeModel> = new Map();
-
   public constructor(schema: NodeSchema) {
-    super(schema);
+    const { id = uuid(), name } = schema;
 
-    NodeModel.nodes.set(this.id, this);
+    this.id = id;
+    this.name = name;
   }
 
-  public toSchema() {
-    const { id, locked, hidden } = this;
+  public update(schema: Partial<NodeSchema>) {
+    const { locked = false, hidden = false } = schema;
 
-    return {
-      id,
-      locked,
-      hidden,
-    };
+    this.locked = locked;
+    this.hidden = hidden;
   }
+}
 
-  public lock() {
-    this.locked = true;
-  }
-
-  public unlock() {
-    this.locked = false;
-  }
-
-  public setVisible(visible: boolean) {
-    this.hidden = !visible;
-  }
+export function createNode(schema: NodeSchema) {
+  return NodeModel.create(schema);
 }

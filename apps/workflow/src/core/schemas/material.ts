@@ -1,4 +1,4 @@
-export interface MaterialSchema {
+export interface MaterialSchema<Props = {}> {
   /** material name */
   name: string;
 
@@ -19,4 +19,7 @@ export interface MaterialSchema {
 
   /** invisible in materials panel (default?: false) */
   hidden?: boolean;
+
+  /** material props */
+  props?: Props;
 }
