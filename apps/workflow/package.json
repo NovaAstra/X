@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/lodash-es": "^4.17.12",
     "@vue-flow/core": "^1.33.4",
+    "lodash-es": "^4.17.21",
     "mitt": "^3.0.1",
     "vue": "^3.4.21"
   },
