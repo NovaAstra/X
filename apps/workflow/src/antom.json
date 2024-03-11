@@ -1,0 +1,43 @@
+{
+  "w_WSOiJL4KpSNq4i3LBq_46ZzqNPxeXjB5Ho": {
+    "id": "w_WSOiJL4KpSNq4i3LBq_46ZzqNPxeXjB5Ho",
+    "name": "Demo项目",
+    "description": "Demo项目描述",
+    "modules": {
+      "kpPQlNJHyRVLO4Vc": {
+        "id": "kpPQlNJHyRVLO4Vc",
+        "name": "用户模块",
+        "nodes": {
+          "prE_KtEO35EPBRcE": {
+            "id": "prE_KtEO35EPBRcE",
+            "name": "$HTTP"
+          }
+        }
+      },
+      "VFoCwu02JHvk_PEF": {
+        "id": "VFoCwu02JHvk_PEF",
+        "name": "系统模块",
+        "children": {
+          "id": "JlWy9VdViOqp2Yvp",
+          "name": "角色模块",
+          "nodes": {
+            "wUHVndsoZQP9JbZR": {
+              "id": "wUHVndsoZQP9JbZR",
+              "name": "$HTTP"
+            }
+          }
+        }
+      },
+      "zPyruJt9JSbH0D8y": {
+        "id": "zPyruJt9JSbH0D8y",
+        "name": "通用模块",
+        "nodes": {
+          "sM52TRl_OqbUsakX": {
+            "id": "sM52TRl_OqbUsakX",
+            "name": "$HTTP"
+          }
+        }
+      }
+    }
+  }
+}
